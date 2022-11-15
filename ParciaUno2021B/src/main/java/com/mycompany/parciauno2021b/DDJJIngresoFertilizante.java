@@ -4,20 +4,19 @@
  */
 package com.mycompany.parciauno2021b;
 
-
-
 /**
  *
  * @author CHIZO
  */
 public class DDJJIngresoFertilizante {
+
     private int anioDeclaracion;
     private int mesDeclaracion;
     private double montoXIngreso;
     private String empresa;
     private long cuitEmpresa;
     //creo array de dos dimensiones
-    private String [][]detallesFertilizantes;
+    private String[][] detallesFertilizantes;
 
     public int getAnioDeclaracion() {
         return anioDeclaracion;
@@ -66,10 +65,27 @@ public class DDJJIngresoFertilizante {
     public void setDetallesFertilizantes(String[][] detallesFertilizantes) {
         this.detallesFertilizantes = detallesFertilizantes;
     }
-      public void addDetallesFertilizante(int x) {
-        if(this.detallesFertilizantes == null)
-            this.detallesFertilizantes = new String [x][6];
+
+    public void addDetallesFertilizante(int x) {
+        if (this.detallesFertilizantes == null) {
+            this.detallesFertilizantes = new String[x][6];
+        }
+    }
+
+    public void agregarFertilizante(int fila, int columna, String valor) {
+        this.detallesFertilizantes[fila][columna] = valor;
+    }
+
+    public String mostrarFertilizante(int fila, int columna) {
+        return (detallesFertilizantes[fila][columna]);
+    }
+    public void calcularTotalAbonoIngreso(){
+    double total=0;
+    for(int i = 0; i < detallesFertilizantes.length; i++){
+        double dato= Double.valueOf(detallesFertilizantes[i][5]);
+        total+=dato ;
         
-    
+    }
+   montoXIngreso= total;
 }
 }
